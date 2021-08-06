@@ -1,26 +1,24 @@
-from flask import Flask
-from datetime import datetime
 import re
+import plotly
+import plotly.express as px
+from flask import Flask, render_template, request
+from datetime import datetime
+from weather_api import *
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, Flask!"
+    return render_template('index.html')
 
-@app.route("/hello")
-def hello_there(name):
-    now = datetime.now()
-    formatted_now = now.strftime("%A, %d %B, %Y at %X")
+@app.route("/pm1")
+def pm1():
+    return render_template('pm1.html')
 
-    # Filter the name argument to letters only using regular expressions. URL arguments
-    # can contain arbitrary text, so we restrict to safe characters only.
-    match_object = re.match("[a-zA-Z]+", name)
+@app.route("/pm10")
+def pm1():
+    return render_template('pm10.html')
 
-    if match_object:
-        clean_name = match_object.group(0)
-    else:
-        clean_name = "Friend"
-
-    content = "Hello there, " + clean_name + "! It's " + formatted_now
-    return content
+@app.route("/pm25")
+def pm1():
+    return render_template('pm25.html')
