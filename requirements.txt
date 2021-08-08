@@ -9,8 +9,10 @@ numpy==1.21.1
 matplotlib==3.4.2
 plotly==5.1.0
 
-#other
+#git
 python-dotenv==0.19.0
+
+#electronics
 serial==0.0.97
 pyserial==3.5
 
