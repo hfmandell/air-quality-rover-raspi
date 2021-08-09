@@ -25,9 +25,25 @@ def get_weather_json(zipCode):
     # convert wind speed from m/s to mph
     wind_speed_mph = round(response['wind']['speed'] * 2.2369363, 2)
 
+    # convert the timestamp to an easily readible string for the home page
     now = datetime.now()
+
+    month = now.month
+    day = now.day
+    year = now.year
+    hour = now.hour
+
+    suffix = "AM"
+    if hour > 12:
+        hour = hour - 12
+        suffix = "PM"
+
+    minute = now.minute
+
+    time = f'{month}-{day}-{year}, {hour}:{minute} {suffix}'
+
     # returns: [timestamp, main, description, temp, feels like, humidity, wind speed]
-    return [now, 
+    return [time, 
             response['weather'][0]['main'],
             response['weather'][0]['description'],
             temp_F,
