@@ -42,13 +42,28 @@ def home():
 
 @app.route("/pm1")
 def pm1():
-    geo_plotting
+    #geo_plotting
+    return render_template('pm1.html')
+
+@app.route("/pm1-map.html")
+def pm1_map():
+    geo_plotting #(1)
     return render_template('pm1-map.html')
+
+@app.route("/pm25")
+def pm25():
+    return render_template('pm25.html')
+
+@app.route("/pm25-map.html")
+def pm25_map():
+    geo_plotting(2.5)
+    return render_template('pm25-map.html')
 
 @app.route("/pm10")
 def pm10():
     return render_template('pm10.html')
 
-@app.route("/pm25")
-def pm25():
-    return render_template('pm25.html')
+@app.route("/pm10-map.html")
+def pm10_map():
+    geo_plotting(10)
+    return render_template('pm10-map.html')
