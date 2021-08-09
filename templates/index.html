@@ -12,7 +12,9 @@
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Logo</span>
+  <span class="w3-bar-item w3-right">
+    <img src='https://www.eduopinions.com/wp-content/uploads/2018/08/PomonaCollege-logo.jpg' height=25px, width="auto">
+  </span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -51,48 +53,38 @@
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Air Quality Dashboard</b></h5>
-    <h6>Average microgram per cubic meter over the past 10 minutes of measurement.</h6>
+    <h6>Average microgram per cubic meter over the past 10 measurements.</h6>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+    <div class="w3-third">
+      <div class="w3-container w3-purple w3-padding-16">
+        <div class="w3-left"><i class="fa fa-dot-circle-o w3-large"></i></div>
         <div class="w3-right">
           <h3>{{pm1LastTenAvg}}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>PM1</h4>
+        <h4>PM 1</h4>
       </div>
     </div>
-    <div class="w3-quarter">
+    <div class="w3-third">
       <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3>{{pm10LastTenAvg}}</h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM10</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxlarge"></i></div>
         <div class="w3-right">
           <h3>{{pm25LastTenAvg}}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>PM25</h4>
+        <h4>PM 2.5</h4>
       </div>
     </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+    <div class="w3-third">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3>{{pm10LastTenAvg}}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Users</h4>
+        <h4>PM 10</h4>
       </div>
     </div>
   </div>
@@ -100,67 +92,61 @@
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Regions</h5>
+        <h5>Measurement Map</h5>
         <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
       </div>
       <div class="w3-twothird">
-        <h5>Feeds</h5>
-        <table class="w3-table w3-striped w3-white">
+        <h5><b>Current Weather for Zipcode: </b>98103</h5> 
+        <h6>As of {{ weatherTime }}</h6>
+        <h6><i>Source: <a href=openweather.com >openweather.com</a></i></h6>
+        <table class="w3-table w3-striped w3-hoverable w3-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
+            <td><i class="fa fa-thermometer-half w3-text-red w3-large"></i></td>
+            <td>Temperature</td>
+            <td><i>{{ temperature }}°F</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
+            <td><i class="fa fa-sun-o w3-text-yellow w3-large"></i></td>
+            <td>Feels Like</td>
+            <td><i>{{ feelsLike }}°F</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
+            <td><i class="fa fa-tint w3-text-blue w3-large"></i></td>
+            <td>Humidity</td>
+            <td><i>{{ humidity }}%</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
+            <td><i class="fa fa-umbrella w3-text-purple w3-large"></i></td>
+            <td>Description</td>
+            <td><i>{{ description }}</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
+            <td><i class="fa fa-flag w3-text-green w3-large"></i></td>
+            <td>Wind Speed</td>
+            <td><i>{{ windSpeed }} mph</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
         </table>
       </div>
     </div>
   </div>
   <hr>
   <div class="w3-container">
-    <h5>General Stats</h5>
-    <p>New Visitors</p>
+    <h5><b>Particulate Matter Stats</b></h5>
+    <h6>Annual Arithmetic Mean Exposure Standards set by the US EPA</h6>
+    <p>PM 1</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+      <div class="w3-container w3-center w3-padding w3-purple" style="width:10%">0 μg/m3</div>
     </div>
 
-    <p>New Users</p>
+    <p>PM 2.5</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+      <div class="w3-container w3-center w3-padding w3-blue" style="width:30%">12 μg/m3</div>
     </div>
 
-    <p>Bounce Rate</p>
+    <p>PM 10</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+      <div class="w3-container w3-center w3-padding w3-teal" style="width:75%">50 μg/m3</div>
     </div>
   </div>
   <hr>
