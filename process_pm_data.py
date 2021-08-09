@@ -1,12 +1,12 @@
-
 import os
 import csv
 import pandas as pd
 import datetime
 
-
 def is_file_empty(file_name):
-    """ Check if file is empty by reading first character in it"""
+    """ 
+    Check if file is empty by reading first character in it
+    """
     # open ile in read mode
     with open(file_name, 'r') as read_obj:
         # read first character
@@ -37,7 +37,7 @@ def main(raw_file_in):
 
             # grab data 
             oldDateObject, pm1_cf, pm25_cf, pm10_cf, pm1, pm25, pm10  = line[0], line[1], line[2], line[3], line[4], line[5], line[6]
-            
+
             # remove labels
             pm1_cf, pm25_cf, pm10_cf, pm1, pm25, pm10 = pm1_cf[10:], pm25_cf[11:], pm10_cf[11:], pm1[7:], pm25[8:], pm10[8:-1]
             
@@ -48,8 +48,8 @@ def main(raw_file_in):
             row = [newDateObject, pm1_cf, pm25_cf, pm10_cf, pm1, pm25, pm10]
             
             # add data to csv
-            writer.writerow(row)
+            #writer.writerow(row)
 
 if __name__ == "__main__":
-    raw_file_in = 'data/processed/airquality_data_to_use.csv'
+    raw_file_in = 'data/raw/airquality_data.csv'
     main(raw_file_in)
