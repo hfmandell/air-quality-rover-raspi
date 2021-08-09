@@ -24,7 +24,7 @@
       <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome</span><br>
+      <span>PM Monitoring</span><br>
       <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a> -->
@@ -53,19 +53,113 @@
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> PM 1</b></h5>
-    <h6>Average microgram per cubic meter over the past 10 measurements.</h6>
+    <h6>Most Recent Measurement:</h6>
   </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-container w3-purple w3-padding-16">
+      <div class="w3-left"><i class="fa fa-dot-circle-o w3-large"></i></div>
+        <div class="w3-right">
+          <h3><b>{{pm1LastTenAvg}}</b></h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>PM 1</h4>
+    </div>
+  </div>
 
   <body>
     <div class="w3-container">
-      <h5>Distribution Map</h5>
-      <iframe src="http://127.0.0.1:5000/pm1-map.html" height=550px frameBorder="0"></iframe>
+      <div class="w3-row-padding w3-margin-bottom">
+        <h5><b>Distribution Map</b></h5>
+        <h6>Right click to see the exact measurement at a given point.</h6>
+        <iframe src="http://127.0.0.1:5000/pm1-map.html" height=575px width=95% frameBorder="0"></iframe>
+       </div>
+    </div>
+
+    <div class="w3-container">
+      <h5><b>Measurement History</b></h5>
+      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <tr>
+          <td>Last Hour Average</td>
+          <td>65%</td>
+        </tr>
+        <tr>
+          <td>Today Average</td>
+          <td>15.7%</td>
+        </tr>
+        <tr>
+          <td>This Week Average</td>
+          <td>5.6%</td>
+        </tr>
+        <tr>
+          <td>All Time Average</td>
+          <td>2.1%</td>
+        </tr>
+      </table><br>
+      <!-- <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button> -->
+    </div>
+
+
+    <div class="w3-container">
+      <h5><b>PM 1 Facts</b></h5>
+      <ul class="w3-ul w3-card-4 w3-white">
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Definition</span><br>
+          <h5>This is a definition</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Origin</span><br>
+          <h5>This is about origin</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Danger</span><br>
+          <h5>This is about danger</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Prevention</span><br>
+          <h5>This is about prevention</h5>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-container">
+      <div class="w3-clear w3-padding-16"></div>
+    </div>
+
+    <div class="w3-container w3-dark-grey w3-padding-32">
+      <div class="w3-clear w3-padding-16"></div>
+      <!-- <div class="w3-row">
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+          <p>Language</p>
+          <p>Country</p>
+          <p>City</p>
+        </div>
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-red">System</h5>
+          <p>Browser</p>
+          <p>OS</p>
+          <p>More</p>
+        </div>
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-orange">Target</h5>
+          <p>Users</p>
+          <p>Active</p>
+          <p>Geo</p>
+          <p>Interests</p>
+        </div>
+      </div> -->
     </div>
 
 	<!-- Footer -->
   <footer class="w3-container w3-padding-16 w3-light-grey">
-    <h4>FOOTER</h4>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <h6><b>Created by Hannah Mandell</b><h6>
+    <h7>In fulfillment of Pomona College's 2021 RAISE Summer Program</h7>
+    <p><i>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></i></p>
   </footer>
 
   <!-- End page content -->
