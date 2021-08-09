@@ -28,7 +28,10 @@ def get_weather_json(zipCode):
     # convert the timestamp to an easily readible string for the home page
     now = datetime.now()
 
-    month = now.month
+    month_num = now.month
+    datetime_month = datetime.strptime(str(month_num), "%m")
+    month_name = datetime_month.strftime("%B")
+
     day = now.day
     year = now.year
     hour = now.hour
@@ -39,8 +42,10 @@ def get_weather_json(zipCode):
         suffix = "PM"
 
     minute = now.minute
+    if minute < 10:
+        minute = "0" + str(minute)
 
-    time = f'{month}-{day}-{year}, {hour}:{minute} {suffix}'
+    time = f'{month_name} {day}, {year},  {hour}:{minute} {suffix}'
 
     # returns: [timestamp, main, description, temp, feels like, humidity, wind speed]
     return [time, 
