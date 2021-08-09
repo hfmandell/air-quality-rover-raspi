@@ -7,17 +7,24 @@ from dotenv import load_dotenv
 # from bs4 import BeautifulSoup
 
 def get_weather_json(zipCode):
-    # acquire api key
+    # acquire api keys for aqi and weather
     load_dotenv() 
+    # AQIAPIkey = os.environ['AIRQUALITY_APIKEY']
     APIkey=os.environ['WEATHER_APIKEY']
 
     # make the request 
+    # aqi_requestString = f'https://api.waqi.info/feed/seattle?token={AQIAPIkey}'
     requestString = f'http://api.openweathermap.org/data/2.5/weather?zip={zipCode},&appid={APIkey}'
-    print(requestString)
+
 
     # get response in a json format for easier data extraction
+    # aqi_response=requests.get(aqi_requestString).json()
     response=requests.get(requestString).json()
 
+    # get AQI stat
+    # aqi = aqi_response['data']['aqi']
+
+    # move onto weather data:
     # convert from Kelvin --> Celcius --> Fahrenheit
     temp_F = math.floor((response['main']['temp'] - 273.15) * 1.8 + 32)
     feels_like_temp_F = math.floor((response['main']['feels_like'] - 273.15) * 1.8 + 32)
@@ -54,7 +61,8 @@ def get_weather_json(zipCode):
             temp_F,
             feels_like_temp_F,
             response['main']['humidity'],
-            wind_speed_mph
+            wind_speed_mph #,
+            # aqi
             ]
 
 if __name__ == "__main__":
