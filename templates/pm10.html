@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<title>PM 1</title>
+<title>PM 10</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style/style.css" />
+<link rel="stylesheet" href="css/iThing.css" type="text/css">
 
 <body class="w3-light-grey">
 <!-- Top container -->
@@ -24,7 +24,7 @@
       <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome</span><br>
+      <span>PM Monitoring</span><br>
       <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a> -->
@@ -43,7 +43,6 @@
   </div>
 </nav>
 
-<body>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -54,13 +53,128 @@
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> PM 10</b></h5>
-    <h6>Average microgram per cubic meter over the past 10 measurements.</h6>
+    <h6>Most Recent Measurement:</h6>
   </header>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-16 w3-light-grey">
-    <h4>FOOTER</h4>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-container w3-teal w3-padding-16">
+      <div class="w3-left"><i class="fa fa-dot-circle-o w3-large"></i></div>
+        <div class="w3-right">
+          <h3><b>{{pm10LastTenAvg}}</b></h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>PM 10</h4>
+    </div>
+  </div>
+
+  <body>
+    <div class="w3-container">
+      <div class="w3-row-padding w3-margin-bottom">
+        <h5><b>Distribution Map</b></h5>
+        <h6>Click to see the exact measurement at a given point.</h6>
+        <div id="slider"></div>
+        <script src="jquery.js"></script>
+        <script src="jquery-ui.custom.js"></script>
+        <script src="jQDateRangeSlider-min.js"></script>
+        <script>
+        //<!--
+          $("#slider").dateRangeSlider();
+        //-->
+        // Preferred method
+          $("#slider").on("valuesChanging", function(e, data){
+            min = data.values.min;
+            max = data.values.max;
+
+          });
+        </script>
+        <iframe src="http://127.0.0.1:5000/pm10-map.html" height=575px width=95% frameBorder="0"></iframe>
+       </div>
+    </div>
+
+    <div class="w3-container">
+      <h5><b>Measurement History</b></h5>
+      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <tr>
+          <td>Past Hour Average</td>
+          <td>{{ lastHour }} μg/m³</td>
+        </tr>
+        <tr>
+          <td>Past Day Average</td>
+          <td>{{ lastHour }} μg/m³</td>
+        </tr>
+        <tr>
+          <td>Past Week Average</td>
+          <td>{{ lastWeek }} μg/m³</td>
+        </tr>
+        <tr>
+          <td>All Time Average</td>
+          <td>{{ allTime }} μg/m³</td>
+        </tr>
+      </table><br>
+      <!-- <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button> -->
+    </div>
+
+
+    <div class="w3-container">
+      <h5><b>PM 10 Facts</b></h5>
+      <ul class="w3-ul w3-card-4 w3-white">
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Definition</span><br>
+          <h5>This is a definition</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Origin</span><br>
+          <h5>This is about origin</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Danger</span><br>
+          <h5>This is about danger</h5>
+        </li>
+        <li class="w3-padding-16">
+          <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+          <span class="w3-xlarge">Prevention</span><br>
+          <h5>This is about prevention</h5>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-container">
+      <div class="w3-clear w3-padding-16"></div>
+    </div>
+
+    <div class="w3-container w3-dark-grey w3-padding-32">
+      <div class="w3-clear w3-padding-16"></div>
+      <!-- <div class="w3-row">
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+          <p>Language</p>
+          <p>Country</p>
+          <p>City</p>
+        </div>
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-red">System</h5>
+          <p>Browser</p>
+          <p>OS</p>
+          <p>More</p>
+        </div>
+        <div class="w3-container w3-third">
+          <h5 class="w3-bottombar w3-border-orange">Target</h5>
+          <p>Users</p>
+          <p>Active</p>
+          <p>Geo</p>
+          <p>Interests</p>
+        </div>
+      </div> -->
+    </div>
+
+	<!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h6><b>Created by Hannah Mandell</b><h6>
+    <h7>In fulfillment of Pomona College's 2021 RAISE Summer Program</h7>
+    <p><i>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></i></p>
   </footer>
 
   <!-- End page content -->

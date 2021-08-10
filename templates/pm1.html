@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style/style.css" />
+<link rel="stylesheet" href="css/iThing.css" type="text/css">
 
 <body class="w3-light-grey">
 <!-- Top container -->
@@ -71,7 +71,22 @@
     <div class="w3-container">
       <div class="w3-row-padding w3-margin-bottom">
         <h5><b>Distribution Map</b></h5>
-        <h6>Right click to see the exact measurement at a given point.</h6>
+        <h6>Click to see the exact measurement at a given point.</h6>
+        <div id="slider"></div>
+        <script src="jquery.js"></script>
+        <script src="jquery-ui.custom.js"></script>
+        <script src="jQDateRangeSlider-min.js"></script>
+        <script>
+        //<!--
+          $("#slider").dateRangeSlider();
+        //-->
+        // Preferred method
+          $("#slider").on("valuesChanging", function(e, data){
+            min = data.values.min;
+            max = data.values.max;
+
+          });
+        </script>
         <iframe src="http://127.0.0.1:5000/pm1-map.html" height=575px width=95% frameBorder="0"></iframe>
        </div>
     </div>
@@ -80,20 +95,20 @@
       <h5><b>Measurement History</b></h5>
       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr>
-          <td>Last Hour Average</td>
-          <td>65%</td>
+          <td>Past Hour Average</td>
+          <td>{{ lastHour }} μg/m³</td>
         </tr>
         <tr>
-          <td>Today Average</td>
-          <td>15.7%</td>
+          <td>Past Day Average</td>
+          <td>{{ lastHour }} μg/m³</td>
         </tr>
         <tr>
-          <td>This Week Average</td>
-          <td>5.6%</td>
+          <td>Past Week Average</td>
+          <td>{{ lastWeek }} μg/m³</td>
         </tr>
         <tr>
           <td>All Time Average</td>
-          <td>2.1%</td>
+          <td>{{ allTime }} μg/m³</td>
         </tr>
       </table><br>
       <!-- <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button> -->

@@ -38,32 +38,50 @@ def home():
                             feelsLike = feels_like,
                             humidity = humidity_to_send,
                             description = weather_description,
-                            windSpeed = wind_speed)
+                            windSpeed = wind_speed
+                            )
 
 @app.route("/pm1")
 def pm1():
-    #geo_plotting
-    return render_template('pm1.html')
+    pm_size = 'pm1'
+    last_hour = pm_last_hr_avg(pm_size)
+    last_day = pm_last_day_avg(pm_size)
+    last_week = pm_last_week_avg(pm_size)
+    all_time = pm_all_time_avg(pm_size)
+    return render_template('pm1.html',
+                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm1-map.html")
 def pm1_map():
-    geo_plotting #(1)
+    geo_plotting.plot_pm_and_gps("pm1")
     return render_template('pm1-map.html')
 
 @app.route("/pm25")
 def pm25():
-    return render_template('pm25.html')
+    pm_size = 'pm25'
+    last_hour = pm_last_hr_avg(pm_size)
+    last_day = pm_last_day_avg(pm_size)
+    last_week = pm_last_week_avg(pm_size)
+    all_time = pm_all_time_avg(pm_size)
+    return render_template('pm25.html',
+                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm25-map.html")
 def pm25_map():
-    geo_plotting(2.5)
+    geo_plotting.plot_pm_and_gps("pm25")
     return render_template('pm25-map.html')
 
 @app.route("/pm10")
 def pm10():
-    return render_template('pm10.html')
+    pm_size = 'pm10'
+    last_hour = pm_last_hr_avg(pm_size)
+    last_day = pm_last_day_avg(pm_size)
+    last_week = pm_last_week_avg(pm_size)
+    all_time = pm_all_time_avg(pm_size)
+    return render_template('pm10.html',
+                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm10-map.html")
 def pm10_map():
-    geo_plotting(10)
+    geo_plotting.plot_pm_and_gps("pm10")
     return render_template('pm10-map.html')
