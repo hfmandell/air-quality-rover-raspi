@@ -1,6 +1,11 @@
 #Flask
 flask==2.0.1
 
+#java
+npm==0.1.1
+node==0.9.26
+nodejs==0.1.1
+
 #data
 pandas==1.3.1
 numpy==1.21.1
@@ -14,6 +19,7 @@ seaborn==0.11.1
 ipykernel==6.0.3
 ipyleaflet==0.14.0
 ipyleaflet-legend==0.1.0
+flask-ipywidgets==0.1.0
 
 #git
 python-dotenv==0.19.0
