@@ -2,6 +2,7 @@ import plotly
 import plotly.express as px
 import pandas as pd
 import numpy as np
+import json
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
@@ -62,7 +63,9 @@ def plot_all_pm_timeseries():
             dict(dtickrange=["M12", None], value="%Y")
         ]
     )
-    fig.show()
+    # fig.show()
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
 
 
 def plot_all_pm_timeseries_orig():
