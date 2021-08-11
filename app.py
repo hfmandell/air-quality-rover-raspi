@@ -44,11 +44,13 @@ def home():
 @app.route("/pm1")
 def pm1():
     pm_size = 'pm1'
+    most_recent_pm = most_recent_pm_reading(pm_size)
     last_hour = pm_last_hr_avg(pm_size)
     last_day = pm_last_day_avg(pm_size)
     last_week = pm_last_week_avg(pm_size)
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm1.html',
+                            mostRecent = most_recent_pm,
                             lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm1-map.html")
@@ -59,11 +61,13 @@ def pm1_map():
 @app.route("/pm25")
 def pm25():
     pm_size = 'pm25'
+    most_recent_pm = most_recent_pm_reading(pm_size)
     last_hour = pm_last_hr_avg(pm_size)
     last_day = pm_last_day_avg(pm_size)
     last_week = pm_last_week_avg(pm_size)
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm25.html',
+                            mostRecent = most_recent_pm,
                             lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm25-map.html")
@@ -74,14 +78,29 @@ def pm25_map():
 @app.route("/pm10")
 def pm10():
     pm_size = 'pm10'
+    most_recent_pm = most_recent_pm_reading(pm_size)
     last_hour = pm_last_hr_avg(pm_size)
     last_day = pm_last_day_avg(pm_size)
     last_week = pm_last_week_avg(pm_size)
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm10.html',
+                            mostRecent = most_recent_pm,
                             lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm10-map.html")
 def pm10_map():
     geo_plotting.plot_pm_and_gps("pm10")
     return render_template('pm10-map.html')
+
+@app.route("/what_is_pm")
+def what_is_pm():
+    return render_template('/what_is_pm.html')
+
+@app.route("/env_justice")
+def env_justice():
+    return render_template('/env_justice.html')
+
+@app.route("/future_applications")
+def future_applications():
+    return render_template('/future_applications.html')
+

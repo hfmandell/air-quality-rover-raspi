@@ -33,6 +33,11 @@ def get_pm25_last10_avg():
     print(pm25_last10_avg)
     return pm25_last10_avg
 
+def most_recent_pm_reading(pm_size):
+    df = pd.read_csv("data/processed/airquality_data_to_use.csv")
+    last_row = df.iloc[-1]
+    return last_row[pm_size]
+
 def pm_last_hr_avg(pm_size):
     df = pd.read_csv("data/processed/airquality_data_to_use.csv")
 
