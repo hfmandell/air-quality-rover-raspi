@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 # import other python files & functions
-from plot_pm_data import *
+import plot_pm_data
 from pm_stats_to_display import *
 from weather_api import *
 import geo_plotting
@@ -91,6 +91,11 @@ def pm10():
 def pm10_map():
     geo_plotting.plot_pm_and_gps("pm10")
     return render_template('pm10-map.html')
+
+@app.route("/plot_all_pm.html")
+def plot_all_pm():
+    return render_template('/plot_all_pm.html', 
+                            graphJSON = plot_pm_data.plot_all_pm_timeseries())
 
 @app.route("/what_is_pm")
 def what_is_pm():

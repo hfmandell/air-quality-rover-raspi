@@ -39,6 +39,9 @@
     <a href="/pm1" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 1</a>
     <a href="/pm25" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 2.5</a>
     <a href="/pm10" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 10</a>
+    <a href="/what_is_pm" class="w3-bar-item w3-button w3-padding"><i class="fa fa-question fa-fw"></i>  What is Particulate Matter?</a>
+    <a href="/env_justice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-tree fa-fw"></i>  Environmental Justice</a>
+    <a href="/future_applications" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb-o fa-fw"></i>  Future Applications</a>
   </div>
 </nav>
 
@@ -135,6 +138,16 @@
       </div>
     </div>
   </div>
+  <div class="w3-container w3-grey w3-padding-32"></div>
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-container w3-center">
+      <iframe src="http://127.0.0.1:5000/plot_all_pm.html"
+              width=90% height=475px frameBorder="0">
+      </iframe>
+      <p><i>Refresh Screen to Resize Graph</i></p>
+    </div>
+  </div>
+
   <hr>
   <div class="w3-container">
     <h5><b>Particulate Matter Stats</b></h5>
@@ -286,6 +299,13 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<!-- for the "All PM Measurements" Plotly Chart  -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot("chart",graphs,{});
 </script>
 
 </body>
