@@ -1,6 +1,9 @@
 #Flask
 flask==2.0.1
 
+#gcloud
+gcloud==0.18.3
+
 #java
 npm==0.1.1
 node==0.9.26
