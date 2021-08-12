@@ -1,3 +1,4 @@
+from combine_pm_gps import combine_pm_gps_csvs
 import re
 import plotly
 import plotly.express as px
@@ -7,6 +8,8 @@ from datetime import datetime
 
 # import other python files & functions
 import plot_pm_data
+import process_pm_data
+import combine_pm_gps
 from pm_stats_to_display import *
 from weather_api import *
 import geo_plotting
@@ -16,6 +19,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    # clean up the airquality data
+    process_pm_data.main()
+    #run & combine new data
+    combine_pm_gps.combine_pm_gps_csvs()
+
     pm1_to_display = get_pm1_last10_avg()
     pm10_to_display = get_pm10_last10_avg()
     pm25_to_display = get_pm25_last10_avg()
@@ -109,3 +117,6 @@ def env_justice():
 def future_applications():
     return render_template('/future_applications.html')
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
