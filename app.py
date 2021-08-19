@@ -28,7 +28,7 @@ def home():
     pm10_to_display = get_pm10_last10_avg()
     pm25_to_display = get_pm25_last10_avg()
     
-    zipCode = 98103
+    zipCode = 91711
     weather = get_weather_json(zipCode)
     print(weather)
     weather_time = weather[0]
