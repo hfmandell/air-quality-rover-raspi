@@ -66,4 +66,4 @@ def get_weather_json(zipCode):
             ]
 
 if __name__ == "__main__":
-    print(get_weather_json(98103))
+    print(get_weather_json(91711))
