@@ -1,6 +1,8 @@
 #Flask
 flask==2.0.1
 
+gunicorn
+
 #gcloud
 gcloud==0.18.3
 
