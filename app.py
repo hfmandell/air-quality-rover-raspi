@@ -29,24 +29,24 @@ def home():
     pm25_to_display = get_pm25_last10_avg()
     
     zipCode = 91711
-    # weather = get_weather_json(zipCode)
-    # print(weather)
-    # weather_time = weather[0]
-    # weather_description = weather[2]
-    # temperature_to_send = weather[3]
-    # feels_like = weather[4]
-    # humidity_to_send = weather[5]
-    # wind_speed = weather[6]
+    weather = get_weather_json(zipCode)
+    print(weather)
+    weather_time = weather[0]
+    weather_description = weather[2]
+    temperature_to_send = weather[3]
+    feels_like = weather[4]
+    humidity_to_send = weather[5]
+    wind_speed = weather[6]
     return render_template('index.html',
                             pm1LastTenAvg = pm1_to_display,
                             pm10LastTenAvg = pm10_to_display,
-                            pm25LastTenAvg = pm25_to_display # ,
-                            # weatherTime = weather_time,
-                            # temperature = temperature_to_send,
-                            # feelsLike = feels_like,
-                            # humidity = humidity_to_send,
-                            # description = weather_description,
-                            # windSpeed = wind_speed
+                            pm25LastTenAvg = pm25_to_display,
+                            weatherTime = weather_time,
+                            temperature = temperature_to_send,
+                            feelsLike = feels_like,
+                            humidity = humidity_to_send,
+                            description = weather_description,
+                            windSpeed = wind_speed
                             )
 
 @app.route("/pm1")
