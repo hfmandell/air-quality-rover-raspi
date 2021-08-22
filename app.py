@@ -30,7 +30,6 @@ def home():
     
     zipCode = 91711
     weather = get_weather_json(zipCode)
-    print(weather)
     weather_time = weather[0]
     weather_description = weather[2]
     temperature_to_send = weather[3]
@@ -59,7 +58,8 @@ def pm1():
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm1.html',
                             mostRecent = most_recent_pm,
-                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
+                            lastHour=last_hour, lastDay=last_day,
+                            lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm1-map.html")
 def pm1_map():
@@ -76,7 +76,8 @@ def pm25():
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm25.html',
                             mostRecent = most_recent_pm,
-                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
+                            lastHour=last_hour, lastDay=last_day,
+                            lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm25-map.html")
 def pm25_map():
@@ -93,7 +94,8 @@ def pm10():
     all_time = pm_all_time_avg(pm_size)
     return render_template('pm10.html',
                             mostRecent = most_recent_pm,
-                            lastHour=last_hour, lastDay=last_day, lastWeek=last_week, allTime= all_time)
+                            lastHour=last_hour, lastDay=last_day,
+                            lastWeek=last_week, allTime= all_time)
 
 @app.route("/pm10-map.html")
 def pm10_map():
