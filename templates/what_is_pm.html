@@ -35,11 +35,11 @@
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="/" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-eye fa-fw"></i>  Overview</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Overview</a>
     <a href="/pm1" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 1</a>
     <a href="/pm25" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 2.5</a>
     <a href="/pm10" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  PM 10</a>
-    <a href="/what_is_pm" class="w3-bar-item w3-button w3-padding"><i class="fa fa-question fa-fw"></i>  What is Particulate Matter?</a>
+    <a href="/what_is_pm" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-question fa-fw"></i>  What is Particulate Matter?</a>
     <a href="/env_justice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-tree fa-fw"></i>  Environmental Justice</a>
     <a href="/future_applications" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb-o fa-fw"></i>  Future Applications</a>
   </div>
@@ -54,206 +54,141 @@
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> What is Particulate Matter (PM)?</b></h5>
+    <h5><b></i> What is Particulate Matter (PM)?</b></h5>
     <h6>A small look into these even smaller particles.</h6>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-third">
-      <div class="w3-container w3-purple w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-large"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm1LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 1</h4>
-      </div>
-    </div>
-    <div class="w3-third">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxlarge"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm25LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 2.5</h4>
-      </div>
-    </div>
-    <div class="w3-third">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm10LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 10</h4>
-      </div>
-    </div>
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Terrestrial Monitoring Device</h5>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yrQGA5iy5bmCqYvN-KSaAgHaE7%26pid%3DApi&f=1"
-             style="width:100%" alt="Terrestrial Monitoring Device">
-      </div>
       <div class="w3-twothird">
-        <h5><b>Current Weather for Zipcode: </b>98103</h5> 
-        <h6>As of {{ weatherTime }}</h6>
-        <h6><i>Source: <a href=openweather.com >openweather.com</a></i></h6>
-        <table class="w3-table w3-striped w3-hoverable w3-white">
-          <tr>
-            <td><i class="fa fa-thermometer-half w3-text-red w3-large"></i></td>
-            <td>Temperature</td>
-            <td><i>{{ temperature }}°F</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-sun-o w3-text-yellow w3-large"></i></td>
-            <td>Feels Like</td>
-            <td><i>{{ feelsLike }}°F</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-tint w3-text-blue w3-large"></i></td>
-            <td>Humidity</td>
-            <td><i>{{ humidity }}%</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-umbrella w3-text-purple w3-large"></i></td>
-            <td>Description</td>
-            <td><i>{{ description }}</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-flag w3-text-green w3-large"></i></td>
-            <td>Wind Speed</td>
-            <td><i>{{ windSpeed }} mph</i></td>
-          </tr>
-          <!-- <tr>
-            <td><i class="fa fa-flag w3-text-green w3-large"></i></td>
-            <td>Air Quality Index</td>
-            <td><i>{{ aqi }}</i></td>
-          </tr> -->
-          <tr>
-        </table>
+        <img src="{{url_for('static', filename='pm_size_comparison.png')}}" align="middle" 
+          style="width:100%" alt="Particulate Matter Size Comparison"/>
+      </div>
+      <div class="w3-third">
+        <h5><b>Tiny but Mighty</b></h5> 
+        <h6>Particulate Matter are named by their largest encompassing size.
+          PM10 includes all particles smaller than 10 micrometers, PM2.5 includes all 
+          particles smaller than 2.5 micrometers (and is thus included in PM10), and
+          likewise for PM1.
+        </h6>
       </div>
     </div>
   </div>
   <hr>
   <div class="w3-container">
-    <h5><b>Particulate Matter Stats</b></h5>
-    <h6>Annual Arithmetic Mean Exposure Standards set by the US EPA</h6>
-    <p>PM 1</p>
+    <h5><b>Sources</b></h5>
+    <h6>Particulate Matter is birthed from many different origins,
+      some anthropogenic and others entirely organic. These sources are further
+      divided into Primary</i> (direct) and <i>Secondary</i> (indirect) sources.
+      Commonly, PM is thought to simply be the 'stuff' that comprises dust and smog. 
+      Although it is entirely true that PM includes these particles, it also includes
+      a much more diverse portfolio of sources. 
+      <!-- Particulate Matter can be found in a plethora of different shapes - and
+      derived from more than simply factories and dust storms. -->
+    </h6>
+    <h6><b>Primary Sources of PM</b>
+    <!-- <h6>Commonly, PM is thought to simply be the 'stuff' that comprises dust and smog. 
+      Although it is entirely true that PM includes these particles, it also includes
+      smoke from big fires and small fires alike (think of a kitchen's gas stove), 
+      aerosols, mists, agricultural operations, construction and demolition, and much more.
+      Any process that involves emission most likely involves Particulate Matter.</h6> -->
+      <ul>
+        <li>Mining</li>
+        <li>Dust</li>
+        <li>Wildfires</li>
+        <li>Automobile Emissions</li>
+        <li>Construction & Demolition</li>
+        <li>Road Paving</li>
+      </ul>
+    </h6>
+    <h6>Particulate Matter can also be deposited into the atmosphere via Secondary Sources.
+      When other pollutants in the atmosphere interact, they can produce airborne particulates.
+      It is a vicious cycle of air pollutants creating other air pollutants - and builds a case 
+      for the overall reduction of air pollution.
+    </h6>
+    <h6><b>Secondary Sources of PM</b>
+    <ul>
+      <li>NH<sub>3</sub> (Ammonia)</li>
+      <li>SO<sub>x</sub> (Sulfur Oxides)</li>
+      <li>NO<sub>x</sub> (Nitrous Oxides)</li>
+      <li>Volative Organic Compounds (VOCs)</li>
+    </ul>
+  </h6>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5><b>Exposure Standards</b></h5>
+    <h6>Due to the health risks posed by Particulate Matter, the U.S.
+        Environmental Protection Agency has created
+        a range of exposure guidelines to aid the public. PM1 
+        is a newer area of focus in environmental chemistry and is less
+        understood compared to its larger counterparts, it does not 
+        currently have its own exposure guidelines and is instead 
+        contained within the PM2.5 guidelines. Currently, the 
+        <b>Annual Average Exposure Standards</b> are: </h6>
+    <!-- <p>PM 1</p>
     <div class="w3-grey">
       <div class="w3-container w3-center w3-padding w3-purple" style="width:10%">0 μg/m3</div>
-    </div>
+    </div> -->
 
     <p>PM 2.5</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-blue" style="width:30%">12 μg/m3</div>
+      <div class="w3-container w3-center w3-padding w3-blue" style="width:18%">12 μg/m3</div>
     </div>
 
     <p>PM 10</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-teal" style="width:75%">50 μg/m3</div>
+      <div class="w3-container w3-center w3-padding w3-teal" style="width:35%">50 μg/m3</div>
     </div>
-  </div>
-  <hr>
+    <hr>
+    <br>
+    <h6>The U.S. EPA also creates <b>24-hour Exposure Standards</b>. These signify the 
+      maximum average amount of relative PM that a normal individual should be
+      exposed to over a 24 hour period. </h6>
+    <p>PM 2.5</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-blue" style="width:25%">35 μg/m3</div>
+    </div>
 
-  <div class="w3-container">
-    <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <tr>
-        <td>United States</td>
-        <td>65%</td>
-      </tr>
-      <tr>
-        <td>UK</td>
-        <td>15.7%</td>
-      </tr>
-      <tr>
-        <td>Russia</td>
-        <td>5.6%</td>
-      </tr>
-      <tr>
-        <td>Spain</td>
-        <td>2.1%</td>
-      </tr>
-      <tr>
-        <td>India</td>
-        <td>1.9%</td>
-      </tr>
-      <tr>
-        <td>France</td>
-        <td>1.5%</td>
-      </tr>
-    </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
+    <p>PM 10</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-teal" style="width:95%">150 μg/m3</div>
+    </div>
+
   </div>
   <hr>
   <div class="w3-container">
-    <h5>Recent Users</h5>
+    <h5><b>Taking Precaution</b></h5>
+    <h6>Reduce your exposure to high levels of Particulate Matter by considering 
+      the following actions.
+    </h6>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
         <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Mike</span><br>
+        <span class="w3-xlarge">Stay informed of your local Air Quality Index</span><br>
+        <h6>Knowledge is power. Limit your time outdoors when air quality is poor and PM levels are high.</h6>
       </li>
       <li class="w3-padding-16">
         <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Jill</span><br>
+        <span class="w3-xlarge">Avoid busy roadways</span><br>
+        <h6>Spend as little time as possible near areas of high PM emission. Cars and trucks will emit PM 
+          directly from their exhaust pipes. The contents of the exhaust will additionally go through 
+          atmospheric reactions to form other harmful secondary-source Particulate Matter that can coagulate 
+          around trafficked road areas.
+        </h6>
       </li>
       <li class="w3-padding-16">
         <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Jane</span><br>
+        <span class="w3-xlarge">Limit Exercise in Polluted Areas</span><br>
+        <h6>More air is inhaled during activities that require higher cardiovascular expenditure. If 
+          one is located in a space with high levels of Particulate Matter, they will inhale a much higher volume
+        of PM than a non-exercising individual. If possible, exercise in a well-ventilated area. </h6>
       </li>
     </ul>
   </div>
   <hr>
-
-  <div class="w3-container">
-    <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <!-- <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px"> -->
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <!-- <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px"> -->
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-  </div>
   <br>
   <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-        <p>Language</p>
-        <p>Country</p>
-        <p>City</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
-        <p>Browser</p>
-        <p>OS</p>
-        <p>More</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
-        <p>Users</p>
-        <p>Active</p>
-        <p>Geo</p>
-        <p>Interests</p>
-      </div>
-    </div>
   </div>
 
 	<!-- Footer -->
