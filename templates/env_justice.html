@@ -54,206 +54,58 @@
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Environmental Justice</b></h5>
-    <h6>Average microgram per cubic meter over the past 10 measurements.</h6>
+    <h1><b>Environmental Justice</b></h1>
+    <h4>Racial and Socioeconomic Inequities within Particulate Pollution.</h4>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-third">
-      <div class="w3-container w3-purple w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-large"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm1LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 1</h4>
-      </div>
-    </div>
-    <div class="w3-third">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxlarge"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm25LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 2.5</h4>
-      </div>
-    </div>
-    <div class="w3-third">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-dot-circle-o w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3><b>{{pm10LastTenAvg}}</b></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>PM 10</h4>
-      </div>
-    </div>
-  </div>
+  <div class="w3-container">
+    <h5><b>We Do Not All Breathe the Same Air</b></h5>
+    <h6>Pollutant exposure is disproportianate across racial and socioeconomic 
+      lines. Lower-income populations and communities of color experience a higher burden 
+      from PM emissions due to <i>structural racism</i>. 
+    </h6>
+    <h6>Emission producing factories, highways, and other polluting infrastructures
+      are commonly placed in these communities rather than in more affluent, whiter neighborhoods. 
+      Without a seat at the political, economic, or social table, these communities are not given 
+      the platform to argue otherwise and are subjugated to poor air quality.
+    </h6>
 
+    <h6>The soot, dust, and other inhalable particles produced from these facilites force their surrounding
+      communities to endure poor air quality. It is sadly no surpise that this placement leads to higher rates of heart and lung 
+      disese for the surrounding constituents. 
+    </h6>
+  </div>
+  <div class="w3-container">
+    <h5><b>Lifelong Impacts</b></h5>
+    <h6>Many disadvantages accompany prolonged exposure to poor air. Medical issues can result 
+      in students having to miss school or sit out of events and parents needing to stay home from work 
+      to recover. Outside of physical ailments, community members experience higher levels of 
+      mental health challenges such as anxiety and depression due to knowledge of - but inability to 
+      impart change on - their environmental health situation. 
+    </h6>
+    <h6>Compounded, these difficulties contribute to the creation of cyclical 
+      and generational poverty. 
+    </h6>
+  </div>
+  <div class="w3-container">
+    <h5><b>Seeking Change</b></h5>
+    <h6>
+    </h6>
+    <h6>Compounded, these difficulties contribute to the creation of cyclical 
+      and generational poverty. 
+    </h6>
+  </div>
   <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Terrestrial Monitoring Device</h5>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yrQGA5iy5bmCqYvN-KSaAgHaE7%26pid%3DApi&f=1"
-             style="width:100%" alt="Terrestrial Monitoring Device">
-      </div>
-      <div class="w3-twothird">
-        <h5><b>Current Weather for Zipcode: </b>98103</h5> 
-        <h6>As of {{ weatherTime }}</h6>
-        <h6><i>Source: <a href=openweather.com >openweather.com</a></i></h6>
-        <table class="w3-table w3-striped w3-hoverable w3-white">
-          <tr>
-            <td><i class="fa fa-thermometer-half w3-text-red w3-large"></i></td>
-            <td>Temperature</td>
-            <td><i>{{ temperature }}°F</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-sun-o w3-text-yellow w3-large"></i></td>
-            <td>Feels Like</td>
-            <td><i>{{ feelsLike }}°F</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-tint w3-text-blue w3-large"></i></td>
-            <td>Humidity</td>
-            <td><i>{{ humidity }}%</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-umbrella w3-text-purple w3-large"></i></td>
-            <td>Description</td>
-            <td><i>{{ description }}</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-flag w3-text-green w3-large"></i></td>
-            <td>Wind Speed</td>
-            <td><i>{{ windSpeed }} mph</i></td>
-          </tr>
-          <!-- <tr>
-            <td><i class="fa fa-flag w3-text-green w3-large"></i></td>
-            <td>Air Quality Index</td>
-            <td><i>{{ aqi }}</i></td>
-          </tr> -->
-          <tr>
-        </table>
-      </div>
-    </div>
   </div>
   <hr>
   <div class="w3-container">
-    <h5><b>Particulate Matter Stats</b></h5>
-    <h6>Annual Arithmetic Mean Exposure Standards set by the US EPA</h6>
-    <p>PM 1</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-purple" style="width:10%">0 μg/m3</div>
-    </div>
-
-    <p>PM 2.5</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-blue" style="width:30%">12 μg/m3</div>
-    </div>
-
-    <p>PM 10</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-teal" style="width:75%">50 μg/m3</div>
     </div>
   </div>
   <hr>
-
-  <div class="w3-container">
-    <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <tr>
-        <td>United States</td>
-        <td>65%</td>
-      </tr>
-      <tr>
-        <td>UK</td>
-        <td>15.7%</td>
-      </tr>
-      <tr>
-        <td>Russia</td>
-        <td>5.6%</td>
-      </tr>
-      <tr>
-        <td>Spain</td>
-        <td>2.1%</td>
-      </tr>
-      <tr>
-        <td>India</td>
-        <td>1.9%</td>
-      </tr>
-      <tr>
-        <td>France</td>
-        <td>1.5%</td>
-      </tr>
-    </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div>
   <hr>
-  <div class="w3-container">
-    <h5>Recent Users</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      <li class="w3-padding-16">
-        <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Mike</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Jill</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-        <span class="w3-xlarge">Jane</span><br>
-      </li>
-    </ul>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <!-- <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px"> -->
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <!-- <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px"> -->
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-  </div>
   <br>
   <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-        <p>Language</p>
-        <p>Country</p>
-        <p>City</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
-        <p>Browser</p>
-        <p>OS</p>
-        <p>More</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
-        <p>Users</p>
-        <p>Active</p>
-        <p>Geo</p>
-        <p>Interests</p>
-      </div>
-    </div>
   </div>
 
 	<!-- Footer -->
