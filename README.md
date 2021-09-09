@@ -7,9 +7,9 @@ An automated environmental monitoring device that has pre-programmed routes and 
 ### Current Status (8/25/2021):
 
 Deliverables thus far:
-[Deployed Website](https://airquality-rover-raspi.herokuapp.com/)
-[Project Overview](https://tinyurl.com/7w69v7w3)
-[Video of Summer Process](https://youtu.be/aptwiUj107U)
+- [Deployed Website](https://airquality-rover-raspi.herokuapp.com/)
+- [Project Overview](https://tinyurl.com/7w69v7w3)
+- [Video of Summer Process](https://youtu.be/aptwiUj107U)
 
 Sensors collect data, but the process to send it to my local computer and visualize it on Flask webpage is completely manual (completed via SSH into the Pi).
 
