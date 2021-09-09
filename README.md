@@ -1,4 +1,4 @@
-# Terrestrial Environmental Monitoring
+# Terrestrial Robot & Environmental Monitoring
 
 A project begun in the summer of 2021, aiming to explore electronics, environmental data visualization, and web development! 
 
