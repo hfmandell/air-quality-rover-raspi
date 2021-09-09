@@ -5,6 +5,12 @@ A project begun in the summer of 2021, aiming to explore electronics, environmen
 ### End Goal:
 An automated environmental monitoring device that has pre-programmed routes and sends data to the cloud via IoT interfaces.
 ### Current Status (8/25/2021):
+
+Deliverables thus far:
+[Deployed Website](https://airquality-rover-raspi.herokuapp.com/)
+[Project Overview](https://tinyurl.com/7w69v7w3)
+[Video of Summer Process](https://youtu.be/aptwiUj107U)
+
 Sensors collect data, but the process to send it to my local computer and visualize it on Flask webpage is completely manual (completed via SSH into the Pi).
 
 ![pm_size_comparison](https://user-images.githubusercontent.com/58823003/130871849-527dcd6d-d703-4c09-89e1-8eb08ddcc22f.png)
